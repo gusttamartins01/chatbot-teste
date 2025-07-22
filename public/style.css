@@ -73,7 +73,7 @@ body {
 }
 
 .chat-header {
-    background-color: var(--secondary-green); /* Verde ligeiramente mais claro */
+    background-color: #084627; /* Verde ligeiramente mais claro */
     color: var(--text-light);
     padding: 18px 25px; /* Mais padding */
     display: flex;
