@@ -1,0 +1,240 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f2f5; /* Um cinza bem claro para o fundo geral */
+    overflow: hidden;
+}
+
+.chat-container {
+    display: flex;
+    width: 100vw; /* Ocupa 100% da largura da viewport */
+    height: 100vh; /* Ocupa 100% da altura da viewport */
+    background-color: #fff;
+    border-radius: 0; /* Remove bordas para ocupar a tela toda */
+    box-shadow: none; /* Remove sombra para ocupar a tela toda */
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 40%;
+    /* Nova cor verde solicitada */
+    background-color: #084627; 
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centraliza o conteúdo verticalmente */
+    border-right: 1px solid #084627; /* Tom ligeiramente mais escuro para a borda */
+    color: white; /* Texto branco na sidebar verde */
+    text-align: center;
+}
+
+.college-logo {
+    width: 220px;
+    height: auto;
+    max-height: 180px;
+    object-fit: contain;
+    margin-bottom: 30px;
+    border: none; /* Borda branca removida */
+    border-radius: 0; /* Arredondamento da borda removido */
+}
+
+.sidebar p {
+    color: white; /* Garante que o texto seja branco */
+    font-size: 1.1em;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    padding: 0 10px; /* Pequeno padding para o texto não colar nas bordas */
+}
+
+.chat-main {
+    flex-grow: 1; /* Ocupa o restante do espaço */
+    width: 60%; /* O chat ocupará 60% da largura */
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header {
+    /* Nova cor verde solicitada para o cabeçalho do chat */
+    background-color: #084627; 
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid  #084627; /* Tom ligeiramente mais escuro para a borda */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.chat-header .header-logo {
+    width: 45px;
+    height: auto;
+    max-height: 35px;
+    object-fit: contain;
+    margin-right: 10px;
+    border: none; /* Borda branca removida */
+    border-radius: 0; /* Arredondamento da borda removido */
+}
+
+.chat-header span {
+    font-size: 1.2em; /* Fonte um pouco maior para o título */
+    font-weight: bold;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    /* CORREÇÃO AQUI: Fundo branco para a conversa, se for a intenção */
+    background-color: #ffffff; 
+}
+
+.message {
+    max-width: 70%;
+    padding: 10px 15px;
+    border-radius: 18px;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.message.sent {
+    background-color: #ff9800; /* Laranja para mensagens enviadas (mantido) */
+    color: rgb(0, 0, 0);
+    align-self: flex-end;
+    margin-left: auto;
+    border: 1px solid #e65100;
+}
+
+.message.received {
+    background-color: #eeeeee; /* Cinza claro para mensagens recebidas (mantido) */
+    color: #333;
+    align-self: flex-start;
+    margin-right: auto;
+    border: 1px solid #ccc;
+}
+
+/* NOVO: Estilo para o indicador de digitação */
+.message.typing-indicator {
+    background-color: #e0f7fa; /* Um azul claro */
+    color: #007bff;
+    font-style: italic;
+    opacity: 0.8;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { opacity: 0.8; }
+}
+
+
+.chat-input-area {
+    padding: 15px 20px;
+    border-top: 1px solid #eee;
+    background-color: #f8f9fa;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.faq-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+    justify-content: center;
+}
+
+.faq-buttons button {
+    /* Nova cor verde solicitada para os botões de FAQ */
+    background-color: #18442e;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.faq-buttons button:hover {
+    background-color: #084627; /* Hover com um tom ligeiramente mais escuro */
+    transform: translateY(-1px);
+}
+
+.input-wrapper {
+    display: flex;
+    border: 1px solid #000000;
+    border-radius: 25px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#user-input {
+    flex-grow: 1;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1em;
+    outline: none;
+    background-color: transparent;
+}
+
+#send-button {
+    /* CORREÇÃO AQUI: Cor do ícone de envio alterada para branco para melhor contraste */
+    background-color: #167143;
+    color: white; 
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+#send-button:hover {
+    background-color: #115c36; /* Hover com um tom ligeiramente mais escuro */
+}
+
+/* Responsividade básica para telas menores */
+@media (max-width: 768px) {
+    .chat-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        padding: 15px;
+        border-right: none;
+        border-bottom: 1px solid #115c36;
+    }
+
+    .college-logo {
+        width: 150px;
+        max-height: 100px;
+        margin-bottom: 15px;
+    }
+
+    .sidebar p {
+        font-size: 1em;
+    }
+
+    .chat-main {
+        width: 100%;
+        /* SUGESTÃO AQUI: Removido height fixo. Flex-grow já deve ajustar a altura. 
+           Teste se o layout funciona como esperado sem essa linha. */
+        /* height: calc(100vh - 180px); */ 
+    }
+
+    .faq-buttons {
+        justify-content: flex-start;
+    }
+}
