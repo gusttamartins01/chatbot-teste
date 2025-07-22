@@ -1,130 +1,182 @@
+:root {
+    /* Paleta de Cores da Unifametro (adaptada para modernidade) */
+    --primary-green: #084627; /* Verde escuro principal */
+    --secondary-green: #1a6f3b; /* Verde um pouco mais claro para acentos */
+    --light-green: #e6f2ed; /* Verde muito claro para fundos sutis */
+    --orange-accent: #ff9800; /* Laranja para destaque (mensagens enviadas) */
+    --text-dark: #333333;
+    --text-light: #ffffff;
+    --border-light: #dddddd;
+    --background-light: #f8f9fa;
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', Arial, sans-serif; /* Nova fonte */
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f2f5; /* Um cinza bem claro para o fundo geral */
+    background-color: var(--background-light); /* Fundo geral mais claro */
     overflow: hidden;
+    color: var(--text-dark);
 }
 
 .chat-container {
     display: flex;
-    width: 100vw; /* Ocupa 100% da largura da viewport */
-    height: 100vh; /* Ocupa 100% da altura da viewport */
-    background-color: #fff;
-    border-radius: 0; /* Remove bordas para ocupar a tela toda */
-    box-shadow: none; /* Remove sombra para ocupar a tela toda */
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--text-light);
+    border-radius: 0;
+    box-shadow: none;
     overflow: hidden;
 }
 
 .sidebar {
     width: 40%;
-    /* Nova cor verde solicitada */
-    background-color: #084627; 
-    padding: 20px;
+    background-color: var(--primary-green);
+    padding: 30px 20px; /* Mais padding para respiro */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* Centraliza o conteúdo verticalmente */
-    border-right: 1px solid #084627; /* Tom ligeiramente mais escuro para a borda */
-    color: white; /* Texto branco na sidebar verde */
+    justify-content: center;
+    border-right: 1px solid rgba(0, 0, 0, 0.1); /* Borda mais suave */
+    color: var(--text-light);
     text-align: center;
+    box-sizing: border-box; /* Garante que padding não aumente a largura */
 }
 
 .college-logo {
-    width: 220px;
+    width: 200px; /* Ajuste sutil para o logo */
     height: auto;
-    max-height: 180px;
+    max-height: 160px;
     object-fit: contain;
-    margin-bottom: 30px;
-    border: none; /* Borda branca removida */
-    border-radius: 0; /* Arredondamento da borda removido */
+    margin-bottom: 40px; /* Mais espaço abaixo do logo */
 }
 
-.sidebar p {
-    color: white; /* Garante que o texto seja branco */
-    font-size: 1.1em;
-    line-height: 1.5;
-    margin-bottom: 15px;
-    padding: 0 10px; /* Pequeno padding para o texto não colar nas bordas */
+.sidebar-text p { /* Novo seletor para o wrapper de texto */
+    color: var(--text-light);
+    font-size: 1.15em; /* Um pouco maior */
+    line-height: 1.6; /* Melhor espaçamento entre linhas */
+    margin-bottom: 20px; /* Mais espaço entre parágrafos */
+    padding: 0 15px;
+    font-weight: 300; /* Fonte mais leve */
 }
 
 .chat-main {
-    flex-grow: 1; /* Ocupa o restante do espaço */
-    width: 60%; /* O chat ocupará 60% da largura */
+    flex-grow: 1;
+    width: 60%;
     display: flex;
     flex-direction: column;
 }
 
 .chat-header {
-    /* Nova cor verde solicitada para o cabeçalho do chat */
-    background-color: #084627; 
-    color: white;
-    padding: 15px 20px;
+    background-color: var(--secondary-green); /* Verde ligeiramente mais claro */
+    color: var(--text-light);
+    padding: 18px 25px; /* Mais padding */
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 1px solid  #084627; /* Tom ligeiramente mais escuro para a borda */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px var(--shadow-light); /* Sombra mais pronunciada */
+    z-index: 10; /* Garante que fique acima de outros elementos */
 }
 
 .chat-header .header-logo {
-    width: 45px;
+    width: 50px; /* Um pouco maior */
     height: auto;
-    max-height: 35px;
+    max-height: 40px;
     object-fit: contain;
-    margin-right: 10px;
-    border: none; /* Borda branca removida */
-    border-radius: 0; /* Arredondamento da borda removido */
+    margin-right: 12px; /* Mais espaço */
 }
 
 .chat-header span {
-    font-size: 1.2em; /* Fonte um pouco maior para o título */
-    font-weight: bold;
+    font-size: 1.3em; /* Fonte maior para o título */
+    font-weight: 600; /* Mais encorpada */
 }
 
 .chat-messages {
     flex-grow: 1;
-    padding: 20px;
+    padding: 20px 25px; /* Mais padding nas laterais */
     overflow-y: auto;
-    /* CORREÇÃO AQUI: Fundo branco para a conversa, se for a intenção */
-    background-color: #ffffff; 
+    background-color: var(--text-light); /* Fundo branco limpo */
+    display: flex; /* Para flex-direction column e espaçamento */
+    flex-direction: column;
+    gap: 12px; /* Espaçamento entre as mensagens */
 }
 
 .message {
-    max-width: 70%;
-    padding: 10px 15px;
-    border-radius: 18px;
-    margin-bottom: 10px;
+    max-width: 75%; /* Mais largura para as mensagens */
+    padding: 12px 18px; /* Mais padding interno */
+    border-radius: 22px; /* Mais arredondado */
     word-wrap: break-word;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px var(--shadow-light); /* Sombra suave */
+    line-height: 1.5; /* Espaçamento entre linhas para melhor leitura */
 }
 
 .message.sent {
-    background-color: #ff9800; /* Laranja para mensagens enviadas (mantido) */
-    color: rgb(0, 0, 0);
+    background-color: var(--orange-accent);
+    color: var(--text-light); /* Texto branco para contraste */
     align-self: flex-end;
     margin-left: auto;
-    border: 1px solid #e65100;
+    border: none; /* Remove borda */
 }
 
 .message.received {
-    background-color: #eeeeee; /* Cinza claro para mensagens recebidas (mantido) */
-    color: #333;
+    background-color: var(--light-green); /* Verde muito claro para recebidas */
+    color: var(--text-dark);
     align-self: flex-start;
     margin-right: auto;
-    border: 1px solid #ccc;
+    border: none; /* Remove borda */
 }
 
-/* NOVO: Estilo para o indicador de digitação */
+/* Melhoria na formatação dos textos de resposta */
+.message.received p {
+    margin-bottom: 8px; /* Espaçamento entre parágrafos nas respostas */
+}
+
+.message.received p:last-child {
+    margin-bottom: 0;
+}
+
+.message.received ul {
+    list-style: none; /* Remove bullet points padrão */
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+.message.received ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.message.received ul li i {
+    margin-right: 8px;
+    color: var(--secondary-green); /* Cor do ícone */
+}
+
+.message.received a {
+    color: var(--primary-green); /* Link com cor do tema */
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.message.received a:hover {
+    text-decoration: underline;
+}
+
+/* Indicador de digitação */
 .message.typing-indicator {
-    background-color: #e0f7fa; /* Um azul claro */
+    background-color: #e0f7fa;
     color: #007bff;
     font-style: italic;
     opacity: 0.8;
     animation: pulse 1.5s infinite;
+    padding: 8px 15px; /* Ajusta padding para ser mais discreto */
+    border-radius: 15px;
+    max-width: fit-content; /* Ajusta a largura ao conteúdo */
 }
 
 @keyframes pulse {
@@ -133,77 +185,83 @@ body {
     100% { opacity: 0.8; }
 }
 
-
 .chat-input-area {
-    padding: 15px 20px;
-    border-top: 1px solid #eee;
-    background-color: #f8f9fa;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+    padding: 20px 25px; /* Mais padding */
+    border-top: 1px solid var(--border-light);
+    background-color: var(--background-light);
+    box-shadow: 0 -3px 10px var(--shadow-light); /* Sombra mais evidente */
+    z-index: 10;
 }
 
 .faq-buttons {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 18px; /* Mais espaço */
     justify-content: center;
 }
 
 .faq-buttons button {
-    /* Nova cor verde solicitada para os botões de FAQ */
-    background-color: #18442e;
-    color: white;
+    background-color: var(--secondary-green); /* Cor dos botões de FAQ */
+    color: var(--text-light);
     border: none;
-    padding: 8px 15px;
-    border-radius: 20px;
+    padding: 10px 18px; /* Mais padding */
+    border-radius: 25px; /* Mais arredondado */
     cursor: pointer;
-    font-size: 0.9em;
-    transition: background-color 0.2s ease, transform 0.1s ease;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    font-size: 0.95em;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    box-shadow: 0 3px 6px var(--shadow-light); /* Sombra mais evidente */
 }
 
 .faq-buttons button:hover {
-    background-color: #084627; /* Hover com um tom ligeiramente mais escuro */
-    transform: translateY(-1px);
+    background-color: var(--primary-green); /* Tom mais escuro no hover */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px var(--shadow-medium);
 }
 
 .input-wrapper {
     display: flex;
-    border: 1px solid #000000;
-    border-radius: 25px;
+    border: 1px solid var(--border-light); /* Borda mais suave */
+    border-radius: 30px; /* Mais arredondado */
     overflow: hidden;
-    background-color: #fff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    background-color: var(--text-light);
+    box-shadow: 0 2px 8px var(--shadow-light); /* Sombra mais evidente */
 }
 
 #user-input {
     flex-grow: 1;
     border: none;
-    padding: 10px 15px;
+    padding: 12px 20px; /* Mais padding */
     font-size: 1em;
     outline: none;
     background-color: transparent;
+    color: var(--text-dark);
+}
+
+#user-input::placeholder {
+    color: #888; /* Cor do placeholder */
 }
 
 #send-button {
-    /* CORREÇÃO AQUI: Cor do ícone de envio alterada para branco para melhor contraste */
-    background-color: #167143;
-    color: white; 
+    background-color: var(--secondary-green); /* Cor do botão de envio */
+    color: var(--text-light);
     border: none;
-    padding: 10px 15px;
+    padding: 12px 20px; /* Ajuste o padding para coincidir com o input */
     cursor: pointer;
-    font-size: 1.2em;
+    font-size: 1.3em; /* Ícone um pouco maior */
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 #send-button:hover {
-    background-color: #115c36; /* Hover com um tom ligeiramente mais escuro */
+    background-color: var(--primary-green); /* Tom mais escuro no hover */
+    transform: translateX(2px);
 }
 
-/* Responsividade básica para telas menores */
+/* Responsividade para telas menores */
 @media (max-width: 768px) {
     .chat-container {
         flex-direction: column;
@@ -212,29 +270,72 @@ body {
     .sidebar {
         width: 100%;
         height: auto;
-        padding: 15px;
+        padding: 20px 15px;
         border-right: none;
-        border-bottom: 1px solid #115c36;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }
 
     .college-logo {
-        width: 150px;
-        max-height: 100px;
-        margin-bottom: 15px;
+        width: 120px;
+        max-height: 80px;
+        margin-bottom: 20px;
     }
 
-    .sidebar p {
-        font-size: 1em;
+    .sidebar-text p {
+        font-size: 0.95em;
+        margin-bottom: 10px;
     }
 
     .chat-main {
         width: 100%;
-        /* SUGESTÃO AQUI: Removido height fixo. Flex-grow já deve ajustar a altura. 
-           Teste se o layout funciona como esperado sem essa linha. */
-        /* height: calc(100vh - 180px); */ 
+    }
+
+    .chat-header {
+        padding: 12px 15px;
+    }
+
+    .chat-header .header-logo {
+        width: 40px;
+        max-height: 30px;
+        margin-right: 8px;
+    }
+
+    .chat-header span {
+        font-size: 1.1em;
+    }
+
+    .chat-messages {
+        padding: 15px;
+    }
+
+    .message {
+        max-width: 85%; /* Aumenta a largura das mensagens em telas pequenas */
+        padding: 10px 15px;
+        border-radius: 18px;
     }
 
     .faq-buttons {
-        justify-content: flex-start;
+        flex-direction: column; /* Botões FAQ um abaixo do outro em telas pequenas */
+        align-items: stretch; /* Estica para largura total */
+        gap: 8px;
+        margin-bottom: 12px;
+    }
+
+    .faq-buttons button {
+        width: 100%; /* Ocupa a largura total disponível */
+        padding: 12px 15px;
+    }
+
+    .chat-input-area {
+        padding: 15px;
+    }
+
+    #user-input {
+        padding: 10px 15px;
+    }
+
+    #send-button {
+        padding: 10px 15px;
+        font-size: 1.1em;
     }
 }

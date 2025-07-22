@@ -5,15 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat de Dúvidas - Unifametro</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="/public/Background.png"> 
+    <link rel="icon" type="image/png" href="/public/Background.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="chat-container">
         <div class="sidebar">
             <img src="Background.png" alt="Logo da Faculdade" class="college-logo">
-            <p>Seja bem-vindo(a) ao nosso chat de alunos da Unifametro</p>
-            <p>Estamos aqui para te ajudar.</p>
+            <div class="sidebar-text">
+                <p>Seja bem-vindo(a) ao nosso chat de alunos da Unifametro</p>
+                <p>Estamos aqui para te ajudar.</p>
+            </div>
         </div>
         <div class="chat-main">
             <div class="chat-header">
@@ -22,7 +27,16 @@
             </div>
             <div class="chat-messages" id="chat-messages">
                 <div class="message received">
-                   Olá! Seja bem-vindo(a) ao nosso chat de dúvidas. Como posso te ajudar hoje?
+                    Olá! Seja bem-vindo(a) ao nosso chat de dúvidas. Como posso te ajudar hoje?
+                </div>
+                <div class="message received">
+                    <p>Para consultar seus **horários de aula**, você pode acessar o **Portal do Aluno**.</p>
+                    <p>Lá, na seção "**Minhas Disciplinas**", você encontrará o calendário completo e o local das aulas.</p>
+                    <ul>
+                        <li><i class="fas fa-arrow-right"></i> Acesse: <a href="#" target="_blank">portal.unifametro.edu.br</a></li>
+                        <li><i class="fas fa-arrow-right"></i> Dúvidas? Ligue para: (85) 3206-6400</li>
+                    </ul>
+                    <p>Se precisar de mais informações, é só perguntar!</p>
                 </div>
             </div>
             <div class="chat-input-area">
